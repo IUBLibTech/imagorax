@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     concerns :searchable
   end
 
-  devise_for :users
+  # modified for imago to disable account creation through the interface
+  # see http://stackoverflow.com/questions/6734323/how-do-i-remove-the-devise-route-to-sign-up
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
   mount Qa::Engine => '/authorities'
   mount Hyrax::Engine, at: '/'
   resources :welcome, only: 'index'
