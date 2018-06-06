@@ -4,6 +4,7 @@ module Hyrax
   # Generated form for Work
   class WorkForm < Hyrax::Forms::WorkForm
     self.model_class = ::Work
-    self.terms += [:resource_type]
+    # Add Imago terms here
+    self.terms += [:resource_type, :collection_code]
   end
 end
